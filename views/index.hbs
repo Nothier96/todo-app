@@ -1,0 +1,35 @@
+<section class="container">
+  <header>
+    <h1>Enter Your Tasks</h1>
+  </header>
+  {{! <h2>What Do You Want To Accomplish Today</h2>  }}
+  <form method="POST" action="/">
+    <input type="text" name="task" id="task" required />
+    <button type="submit"><i class="fa-solid fa-square-plus"></i></button>
+  </form>
+  <div id="tasks_container">
+    <ul>
+      {{#each items}}
+        {{#if (isCompleted status)}}
+          <section class="tasks">
+            <li class="completed">{{task}}</li>
+            <a class="trash" href="/{{task_id}}"><i
+                class="fa-solid fa-trash"
+              ></i></a><a class="check" href="/ongoing/{{task_id}}"><i
+                class="fa-solid fa-square-check"
+              ></i></a>
+          </section>
+        {{else}}
+          <section class="tasks">
+            <li class="ongoing">{{task}}</li>
+            <a class="trash" href="/{{task_id}}"><i
+                class="fa-solid fa-trash"
+              ></i></a><a class="check" href="/completed/{{task_id}}"><i
+                class="fa-solid fa-check"
+              ></i></a>
+          </section>
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+</section>
