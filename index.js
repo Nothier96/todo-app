@@ -5,7 +5,7 @@ const hbs = require("express-handlebars");
 const bodyParser = require("body-parser");
 // const con = require("./models/taskModel");
 const db = require("./models/taskModel");
-const port = process.env.PORT || 5000;
+let port = process.env.PORT || 5000;
 
 const app = express();
 // middleware and static files like css
